@@ -1,6 +1,2 @@
-#! /bin/bash
-#MODEL_FLAGS="--image_size 256 --num_channels 128 --num_res_blocks 1 --num_heads 4 --learn_sigma True --use_scale_shift_norm False --attention_resolutions 16 --num_head_channels 64"
-#DIFFUSION_FLAGS="--diffusion_steps 1000 --noise_schedule cosine --rescale_learned_sigmas False --rescale_timesteps False --use_scale_shift_norm True --resblock_updown True"
-#TRAIN_FLAGS="--lr 2e-5 --batch_size 4"
-OPENAI_LOGDIR=model256  mpiexec -n 2 python scripts/image_train.py --data_dir /home/huteng/dataset/ffhq --image_size 256 --num_channels 128 --num_res_blocks 1 --num_heads 4 --learn_sigma True --use_scale_shift_norm False --attention_resolutions 16 --num_head_channels 64 --diffusion_steps 1000 --noise_schedule cosine --rescale_learned_sigmas False --rescale_timesteps False --use_scale_shift_norm True --resblock_updown True --lr 2e-5 --batch_size 4
-
+para_0=$0
+OPENAI_LOGDIR=model256  mpiexec -n 2 python scripts/image_train.py --data_dir $1 --image_size 256 --num_channels 128 --num_res_blocks 1 --num_heads 4 --learn_sigma True --use_scale_shift_norm False --attention_resolutions 16 --num_head_channels 64 --diffusion_steps 1000 --noise_schedule cosine --rescale_learned_sigmas False --rescale_timesteps False --use_scale_shift_norm True --resblock_updown True --lr 2e-5 --batch_size 4
